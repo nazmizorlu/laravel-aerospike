@@ -1,8 +1,9 @@
 {
     "name": "luciano-jr/laravel-aerospike",
     "description": "Service to use Aerospike Cache in Laravel 5",
+    "keywords": ["laravel","cache","aerospike"],
     "type": "library",
-    "license": "Apache",
+    "license": "MIT",
     "authors": [
         {
             "name": "Luciano Jr",
@@ -10,9 +11,19 @@
         }
     ],
     "require": {
-
+        "php": ">=5.5.0",
+        "illuminate/console": "~5.0",
+        "illuminate/support": "~5.0",
+        "illuminate/cache": "~5.0",
+        "aerospike/aerospike-client-php": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.5"
-    }
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelAerospike\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
 }

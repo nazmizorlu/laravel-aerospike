@@ -4,55 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "515beff72d5348aeae753870bea26cef",
-    "content-hash": "a26a66790daa6f6528f10f337751951f",
+    "hash": "5927b3846361cc6963b5f41b680af6ec",
+    "content-hash": "6afa8dfd15e1d75675022a0f952953df",
     "packages": [
-        {
-            "name": "aerospike/aerospike-client-php",
-            "version": "3.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aerospike/aerospike-client-php.git",
-                "reference": "b330d50723496f41067e9795b65d9f5767e3919c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aerospike/aerospike-client-php/zipball/b330d50723496f41067e9795b65d9f5767e3919c",
-                "reference": "b330d50723496f41067e9795b65d9f5767e3919c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aerospike\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Aerospike",
-                    "homepage": "http://www.aerospike.com"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/aerospike/aerospike-client-php/graphs/contributors"
-                }
-            ],
-            "description": "The Aerospike PHP client as a C-extension for PHP",
-            "homepage": "http://www.aerospike.com/docs/client/php/",
-            "keywords": [
-                "aerospike",
-                "database",
-                "extension"
-            ],
-            "time": "2014-10-08 02:13:34"
-        },
         {
             "name": "doctrine/inflector",
             "version": "dev-master",
@@ -319,6 +273,52 @@
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
             "time": "2016-08-19 15:15:57"
+        },
+        {
+            "name": "luciano-jr/aerospike-client-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/luciano-jr/aerospike-client-php.git",
+                "reference": "954f7345388490c2e29c66daeb20f51a4ba19cbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/luciano-jr/aerospike-client-php/zipball/954f7345388490c2e29c66daeb20f51a4ba19cbd",
+                "reference": "954f7345388490c2e29c66daeb20f51a4ba19cbd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aerospike\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Aerospike",
+                    "homepage": "http://www.aerospike.com"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://github.com/aerospike/aerospike-client-php/graphs/contributors"
+                }
+            ],
+            "description": "The Aerospike PHP client as a C-extension for PHP",
+            "homepage": "http://www.aerospike.com/docs/client/php/",
+            "keywords": [
+                "aerospike",
+                "database",
+                "extension"
+            ],
+            "time": "2016-08-19 14:57:11"
         },
         {
             "name": "nesbot/carbon",
@@ -1162,12 +1162,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4be1b0196527e94fe3fb23a02bfee92a66bc26f3"
+                "reference": "6346531bfd3dc1bb3ecb9d2f53bade04c6ba0e14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4be1b0196527e94fe3fb23a02bfee92a66bc26f3",
-                "reference": "4be1b0196527e94fe3fb23a02bfee92a66bc26f3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6346531bfd3dc1bb3ecb9d2f53bade04c6ba0e14",
+                "reference": "6346531bfd3dc1bb3ecb9d2f53bade04c6ba0e14",
                 "shasum": ""
             },
             "require": {
@@ -1232,7 +1232,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-08-19 15:52:05"
+            "time": "2016-08-20 09:56:59"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1918,7 +1918,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.0"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }

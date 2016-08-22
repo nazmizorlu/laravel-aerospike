@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @package luciano-jr\laravel-aerospike
  */
 
-class AerospikeFacede extends Facade
+class AerospikeFacade extends Facade
 {
     /**
      * Get the registered name of the component.

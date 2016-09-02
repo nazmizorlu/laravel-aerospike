@@ -36,7 +36,7 @@ class AerospikeServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/aerospike.php' => config_path('aerospike.php'),
+            __DIR__.'/../../config/aerospike.php' => config_path('aerospike.php'),
         ]);
     }
 

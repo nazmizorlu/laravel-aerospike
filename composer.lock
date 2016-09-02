@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5927b3846361cc6963b5f41b680af6ec",
-    "content-hash": "6afa8dfd15e1d75675022a0f952953df",
+    "hash": "f6661f4c74fec8c968dfbe6144db14c5",
+    "content-hash": "b7158722519610aa0e9527d8a3a9e6eb",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -75,56 +75,6 @@
             "time": "2016-05-12 17:23:41"
         },
         {
-            "name": "illuminate/cache",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/cache.git",
-                "reference": "42f40721c97dde2308b4cf6d830504a271d13fa8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/cache/zipball/42f40721c97dde2308b4cf6d830504a271d13fa8",
-                "reference": "42f40721c97dde2308b4cf6d830504a271d13fa8",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "nesbot/carbon": "~1.20",
-                "php": ">=5.6.4"
-            },
-            "suggest": {
-                "illuminate/database": "Required to use the database cache driver (5.4.*).",
-                "illuminate/filesystem": "Required to use the file cache driver (5.4.*).",
-                "illuminate/redis": "Required to use the redis cache driver (5.4.*)."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Cache\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Cache package.",
-            "homepage": "https://laravel.com",
-            "time": "2016-08-18 18:31:05"
-        },
-        {
             "name": "illuminate/console",
             "version": "dev-master",
             "source": {
@@ -181,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
-                "reference": "137c588b73f3e4f2faf06eb7995ece7f446df5b5"
+                "reference": "15dee6ee367f63002b3203c8d3b6017eaa735067"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/137c588b73f3e4f2faf06eb7995ece7f446df5b5",
-                "reference": "137c588b73f3e4f2faf06eb7995ece7f446df5b5",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/15dee6ee367f63002b3203c8d3b6017eaa735067",
+                "reference": "15dee6ee367f63002b3203c8d3b6017eaa735067",
                 "shasum": ""
             },
             "require": {
@@ -215,7 +165,7 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2016-08-19 15:15:57"
+            "time": "2016-08-30 16:10:47"
         },
         {
             "name": "illuminate/support",
@@ -223,12 +173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "f97584689ae984b4e0bea3d4e9fa881e511ba012"
+                "reference": "15e20a618eda4053ca36618d805e813a008101d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/f97584689ae984b4e0bea3d4e9fa881e511ba012",
-                "reference": "f97584689ae984b4e0bea3d4e9fa881e511ba012",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/15e20a618eda4053ca36618d805e813a008101d7",
+                "reference": "15e20a618eda4053ca36618d805e813a008101d7",
                 "shasum": ""
             },
             "require": {
@@ -272,53 +222,7 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2016-08-19 15:15:57"
-        },
-        {
-            "name": "luciano-jr/aerospike-client-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/luciano-jr/aerospike-client-php.git",
-                "reference": "954f7345388490c2e29c66daeb20f51a4ba19cbd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/luciano-jr/aerospike-client-php/zipball/954f7345388490c2e29c66daeb20f51a4ba19cbd",
-                "reference": "954f7345388490c2e29c66daeb20f51a4ba19cbd",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Aerospike\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Aerospike",
-                    "homepage": "http://www.aerospike.com"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/aerospike/aerospike-client-php/graphs/contributors"
-                }
-            ],
-            "description": "The Aerospike PHP client as a C-extension for PHP",
-            "homepage": "http://www.aerospike.com/docs/client/php/",
-            "keywords": [
-                "aerospike",
-                "database",
-                "extension"
-            ],
-            "time": "2016-08-19 14:57:11"
+            "time": "2016-08-30 16:10:47"
         },
         {
             "name": "nesbot/carbon",
@@ -427,12 +331,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "b5044f6c999c0555fd2e7c889e8dc3f0246876de"
+                "reference": "7fd4a41d5576c6f7681390285a992be5723e88ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/b5044f6c999c0555fd2e7c889e8dc3f0246876de",
-                "reference": "b5044f6c999c0555fd2e7c889e8dc3f0246876de",
+                "url": "https://api.github.com/repos/symfony/console/zipball/7fd4a41d5576c6f7681390285a992be5723e88ce",
+                "reference": "7fd4a41d5576c6f7681390285a992be5723e88ce",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +385,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-19 06:48:55"
+            "time": "2016-08-30 17:54:44"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -489,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d"
+                "reference": "53ad9faffe141fbe8f98cd6a7fd9a5e84513f56c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8a6bdec191138e01c92ae026e5aacb7b3e66267d",
-                "reference": "8a6bdec191138e01c92ae026e5aacb7b3e66267d",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/53ad9faffe141fbe8f98cd6a7fd9a5e84513f56c",
+                "reference": "53ad9faffe141fbe8f98cd6a7fd9a5e84513f56c",
                 "shasum": ""
             },
             "require": {
@@ -540,7 +444,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-06-29 14:58:48"
+            "time": "2016-08-30 17:06:17"
         },
         {
             "name": "symfony/translation",
@@ -1240,12 +1144,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19"
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4e83390f64e7ce04fcaec2ce95cd72823b431d19",
-                "reference": "4e83390f64e7ce04fcaec2ce95cd72823b431d19",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
+                "reference": "46b249b43fd2ed8e127aa0fdb3cbcf56e9bc0e49",
                 "shasum": ""
             },
             "require": {
@@ -1291,7 +1195,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-08-17 09:33:51"
+            "time": "2016-08-26 05:51:59"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1812,12 +1716,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "5b61eed69891b2add260a3741660fa68c38900ae"
+                "reference": "aa8be2235b5dd4e472424552390609f61996f5ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/5b61eed69891b2add260a3741660fa68c38900ae",
-                "reference": "5b61eed69891b2add260a3741660fa68c38900ae",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/aa8be2235b5dd4e472424552390609f61996f5ab",
+                "reference": "aa8be2235b5dd4e472424552390609f61996f5ab",
                 "shasum": ""
             },
             "require": {
@@ -1859,7 +1763,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-08-13 18:49:42"
+            "time": "2016-09-02 02:14:06"
         },
         {
             "name": "webmozart/assert",

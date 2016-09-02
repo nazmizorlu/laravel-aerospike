@@ -10,19 +10,23 @@ return [
     | The connection data to connect to Aerospike
     |
     */
-    "conn" => [
-        "hosts" => [
-            ["addr" => "127.0.0.1", "port" => 3000]
+    'conn' => [
+        'hosts' => [
+            [
+                "addr" => env('AEROSPIKE_HOST', 'localhost'),
+                "port" => env('AEROSPIKE_PORT', 3000)
+            ]
         ],
     ],
+
     /*
     |--------------------------------------------------------------------------
-    | Tokens Set
+    | Namespace
     |--------------------------------------------------------------------------
     |
-    | This is the name of the set to store the facestore tokens
+    | This is the default namespace to store.
     |
     */
-    "tokens_set" => "facestorept_tokens",
-];
+    'namespace' => env('AEROSPIKE_NAMESPACE', 'test'),
 
+];

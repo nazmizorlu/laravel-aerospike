@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAerospike\Facades;
+namespace Lucianojr\Aerospike\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Facade;
  * @license MIT
  * @package luciano-jr\laravel-aerospike
  */
-
 class AerospikeFacade extends Facade
 {
     /**
@@ -21,6 +20,6 @@ class AerospikeFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'aerospike';
+        return 'aerospikecache';
     }
 }

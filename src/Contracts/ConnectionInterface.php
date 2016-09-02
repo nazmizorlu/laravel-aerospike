@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAerospike\Contracts;
+namespace Lucianojr\Aerospike\Contracts;
 
 interface ConnectionInterface
 {
@@ -20,6 +20,4 @@ interface ConnectionInterface
      * @return bool
      */
     public function isConnected();
-
-
 }

@@ -1,7 +1,10 @@
 <?php
 
-namespace LaravelAerospike\Exceptions;
+namespace Lucianojr\Aerospike\Exceptions;
 
-class CannotConnectionException extends \Exception
+use Exception;
+
+class CannotConnectionException extends Exception
 {
+
 }

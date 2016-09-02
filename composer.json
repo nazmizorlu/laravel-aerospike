@@ -4,6 +4,10 @@
     "keywords": ["laravel", "cache", "aerospike"],
     "type": "library",
     "license": "MIT",
+    "support": {
+        "issues": "https://github.com/luciano-jr/laravel-aerospike/issues",
+        "source": "https://github.com/luciano-jr/laravel-aerospike"
+    },
     "authors": [
         {
             "name": "Luciano Jr",

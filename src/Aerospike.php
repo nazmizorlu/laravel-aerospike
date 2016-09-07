@@ -2,10 +2,10 @@
 
 namespace Lucianojr\Aerospike;
 
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Contracts\Config\Repository as Config;
+use Illuminate\Contracts\Logging\Log;
+use Illuminate\Http\Request;
+use Illuminate\Session\Store as Session;
 use Lucianojr\Aerospike\Exceptions\CannotConnectionException;
 use Aerospike as Client;
 
@@ -29,14 +29,34 @@ class Aerospike
      * @var string
      */
     protected $namespace;
+    /**
+     * @var Log
+     */
+    private $log;
+    /**
+     * @var Session
+     */
+    private $session;
+    /**
+     * @var Request
+     */
+    private $request;
+    /**
+     * @var Config
+     */
+    private $configuration;
 
     /**
      * Create a new Aerospike store.
      *
      * @param string $connection
+     * @param Log $log
+     * @param Session $session
+     * @param Request $request
+     * @param Config $configuration
      * @throws CannotConnectionException
      */
-    public function __construct($connection)
+    public function __construct($connection, Log $log, Session $session, Request $request, Config $configuration)
     {
         $this->connection = $connection['conn'];
         $this->aerospike = new Client($this->connection, true);
@@ -45,6 +65,10 @@ class Aerospike
         if (!$this->aerospike->isConnected()) {
             throw new CannotConnectionException();
         }
+        $this->log = $log;
+        $this->session = $session;
+        $this->request = $request;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -63,10 +87,13 @@ class Aerospike
         if ($this->isDebug()) {
             switch ($status) {
                 case Client::OK:
-                    Log::info("The query returned " . count($result) . " records", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->info(
+                        "The query returned " . count($result) . " records",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
                 case Client::ERR_RECORD_NOT_FOUND:
-                    Log::info("Could not find");
+                    $this->log->info("Could not find");
                     break;
                 default:
                     break;
@@ -88,7 +115,10 @@ class Aerospike
     public function put($key, $value, $timeToLive = 0, array $option = null)
     {
         if (is_null($option)) {
-            $option = [Client::OPT_POLICY_EXISTS => Client::POLICY_EXISTS_CREATE, Client::OPT_POLICY_KEY => Client::POLICY_KEY_SEND];
+            $option = [
+                Client::OPT_POLICY_EXISTS => Client::POLICY_EXISTS_CREATE,
+                Client::OPT_POLICY_KEY => Client::POLICY_KEY_SEND
+            ];
         }
 
         $key_real = $this->initKey($key['set'], $key['key']);
@@ -110,10 +140,16 @@ class Aerospike
         if ($this->isDebug()) {
             switch ($status) {
                 case Client::OK:
-                    Log::info("Aerospike insert key[{$key_real['key']}] on set[{$key_real['set']}] at namespace[{$key_real['ns']}]", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->info(
+                        "Aerospike insert key[{$key_real['key']}] on set[{$key_real['set']}] at namespace[{$key_real['ns']}]",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
                 default:
-                    Log::error("Aerospike failed create key[{$this->aerospike->errorno()}]: {$this->aerospike->error()}", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->info(
+                        "Aerospike failed create key[{$this->aerospike->errorno()}]: {$this->aerospike->error()}",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
             }
         }
@@ -138,10 +174,16 @@ class Aerospike
         if ($this->isDebug()) {
             switch ($status) {
                 case Client::OK:
-                    Log::info("The query returned " . count($result) . " records", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->info(
+                        "The query returned " . count($result) . " records",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
                 default:
-                    Log::error("An error occured while querying[{$this->aerospike->errorno()}]: {$this->aerospike->error()}", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->error(
+                        "An error occured while querying[{$this->aerospike->errorno()}]: {$this->aerospike->error()}",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
             }
         }
@@ -164,7 +206,7 @@ class Aerospike
         $status = $this->aerospike->exists($key_real, $metadata);
 
         if ($this->isDebug()) {
-            Log::info($metadata);
+            $this->log->info($metadata);
         }
 
         if ($status == Client::ERR_RECORD_NOT_FOUND) {
@@ -213,13 +255,13 @@ class Aerospike
         if ($this->isDebug()) {
             switch ($status) {
                 case Client::OK:
-                    Log::info("Index " . $index[0] . " created on " . $this->namespace . ".");
+                    $this->log->info("Index " . $index[0] . " created on " . $this->namespace . ".");
                     break;
                 case Client::ERR_INDEX_FOUND:
-                    Log::info("Index " . $index[0] . " already created on " . $this->namespace . ".");
+                    $this->log->info("Index " . $index[0] . " already created on " . $this->namespace . ".");
                     break;
                 default:
-                    Log::error("Aerospike failed add Index[{$this->aerospike->errorno()}]: {$this->aerospike->error()}");
+                    $this->log->error("Aerospike failed add Index[{$this->aerospike->errorno()}]: {$this->aerospike->error()}");
                     break;
             }
         }
@@ -239,10 +281,16 @@ class Aerospike
         if ($this->isDebug()) {
             switch ($status) {
                 case Client::OK:
-                    Log::info("Aerospike removes key[{$key_real['key']}] on set[{$key_real['set']}] at namespace[{$this->namespace}]", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->info(
+                        "Aerospike removes key[{$key_real['key']}] on set[{$key_real['set']}] at namespace[{$this->namespace}]",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
                 default:
-                    Log::error("Aerospike failed removing key[{$this->aerospike->errorno()}]: {$this->aerospike->error()}", ['SESSION' => Session::getId(), 'IP' => Request::ip()]);
+                    $this->log->error(
+                        "Aerospike failed removing key[{$this->aerospike->errorno()}]: {$this->aerospike->error()}",
+                        ['SESSION' => $this->session->getId(), 'IP' => $this->request->ip()]
+                    );
                     break;
             }
         }
@@ -300,6 +348,6 @@ class Aerospike
      */
     private function isDebug()
     {
-        return true == Config::get('app.debug');
+        return true == $this->configuration->get('app.debug');
     }
 }

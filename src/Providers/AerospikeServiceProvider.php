@@ -2,6 +2,10 @@
 
 namespace Lucianojr\Aerospike\Providers;
 
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Logging\Log;
+use Illuminate\Http\Request;
+use Illuminate\Session\Store as Session;
 use Illuminate\Support\ServiceProvider;
 use Lucianojr\Aerospike\Aerospike as Store;
 
@@ -24,7 +28,13 @@ class AerospikeServiceProvider extends ServiceProvider
 
             $connection = $this->getAerospikeConnection();
 
-            return new Store($connection);
+            return new Store(
+                $connection,
+                $this->app->make(Log::class),
+                $this->app->make(Session::class),
+                $this->app->make(Request::class),
+                $this->app->make(Repository::class)
+            );
         });
     }
 

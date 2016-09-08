@@ -35,28 +35,24 @@ You need to update your application configuration in order to register the packa
 // file END ommited
 ```
 
-#### 2.1 Publishing configuration file and migrations
+#### 2.1 Publishing configuration file
 
-To publish the default configuration file and database migrations, execute the following command: 
+To publish the default configuration file, execute the following command: 
 
 ```shell
 php artisan vendor:publish
 ```
 
-You can also publish only the configuration file or the migrations:
+You can also publish only the configuration file:
 
 ```shell
 php artisan vendor:publish --tag=config
 ```
-Or
-```shell
-php artisan vendor:publish --tag=migrations
-```
 
-If you already published defender files, but for some reason you want to override previous published files, add the `--force` flag.
+If you already published aerospike files, but for some reason you want to override previous published files, add the `--force` flag.
 
 ### 3. Facade (optional)
-In order to use the `Defender` facade, you need to register it on the `config/app.php` file, you can do that the following way:
+In order to use the `AerospikeCache` facade, you need to register it on the `config/app.php` file, you can do that the following way:
 
 ```php
 // config.php file

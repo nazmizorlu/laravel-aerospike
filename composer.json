@@ -1,5 +1,5 @@
 {
-    "name": "nazmizorlu/laravel-aerospike",
+    "name": "luciano-jr/laravel-aerospike",
     "description": "Service to use Aerospike Cache in Laravel 5",
     "keywords": ["laravel", "cache", "aerospike"],
     "type": "library",

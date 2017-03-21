@@ -30,6 +30,5 @@
         "psr-4": {
             "Lucianojr\\Aerospike\\": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
